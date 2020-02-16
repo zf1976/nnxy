@@ -55,6 +55,7 @@ public interface ApiHttpInterface {
     @GET("/app.do")
     Call<List<CampusInfo>> getCampusInfo(@Header("token")String token,
                                          @Query("method")String method);
+
     @GET("/app.do")
     Call<EmptyClassrommResult<List<response.classroom.result.CampusInfo<List<EmptyClassroom>>>>> getEmptyInfo(@Header("token")String token,
                                                                                                               @Query("method")String method,

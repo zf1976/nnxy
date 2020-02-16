@@ -1,6 +1,9 @@
 package api;
 
 import response.*;
+import response.classroom.result.CampusInfo;
+import response.classroom.result.EmptyClassrommResult;
+import response.classroom.result.EmptyClassroom;
 import response.score.result.CourseScoreResp;
 import response.score.result.CourseScoreResult;
 import response.login.info.LoginResp;
@@ -60,7 +63,7 @@ public interface ApiService {
     List<SchoolYearResp> getSchoolYearList(String token, String xh);
 
     /**
-     * 获取课程信息
+     * 获取课程信息列表
      *
      * @param token token
      * @param xh 学号
@@ -78,4 +81,32 @@ public interface ApiService {
      * @return {@link UserInfoResp}
      */
     UserInfoResp getUserInfo(String token, String xh);
+
+    /**
+     * 获取空教室信息列表
+     * @param token
+     * @param method
+     * @param time
+     * @param idleTime
+     * @return
+     */
+    EmptyClassrommResult<List<List<CampusInfo<List<EmptyClassroom>>>>> getEmptyClassroomList(String token,String method,String time,String idleTime);
+
+    /**
+     * 获取校区信息
+     * @param token
+     * @param method
+     * @return
+     */
+    List<response.CampusInfo> getCampusList(String token,String method);
+
+    /**
+     * 校区教学楼信息
+     * @param token
+     * @param method
+     * @param xqid
+     * @return
+     */
+    List<TeachBuildInfo> getTeachBiuldList(String token,String method,Integer xqid);
+
 }
