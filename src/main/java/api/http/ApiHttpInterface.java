@@ -3,7 +3,7 @@ package api.http;
 import response.*;
 import response.classroom.result.EmptyClassrommResult;
 import response.classroom.result.EmptyClassroom;
-import response.score.result.CourseScoreResp;
+import response.score.result.CourseScore;
 import response.login.info.LoginResp;
 import response.score.result.CourseScoreResult;
 import retrofit2.Call;
@@ -29,9 +29,9 @@ public interface ApiHttpInterface {
                                  @Query("xh") String xh,
                                  @Query("pwd") String pwd);
     @GET("/app.do")
-    Call<CourseScoreResult<List<CourseScoreResp>>> getScore(@Header("token")String token,
-                                                            @Query("method")String method,
-                                                            @Query("xh")String xh);
+    Call<CourseScoreResult<List<CourseScore>>> getScore(@Header("token")String token,
+                                                        @Query("method")String method,
+                                                        @Query("xh")String xh);
     @GET("/app.do")
     Call<List<SchoolYearResp>> getSchoolYear(@Header("token")String token,
                                                              @Query("method")String method,

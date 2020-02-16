@@ -2,7 +2,7 @@ package api.impl;
 
 import api.ApiService;
 import response.*;
-import response.score.result.CourseScoreResp;
+import response.score.result.CourseScore;
 import response.login.info.LoginResp;
 
 import java.util.Date;
@@ -64,7 +64,7 @@ public class ApiServiceIpml implements ApiService {
      * @param dateId 学年Id
      * @return
      */
-    public TemplateResult<List<CourseScoreResp>> getCourseScoreList(String token, String xh, String dateId) {
+    public TemplateResult<List<CourseScore>> getCourseScoreList(String token, String xh, String dateId) {
         return null;
     }
 

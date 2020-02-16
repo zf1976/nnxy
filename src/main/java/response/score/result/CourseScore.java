@@ -7,7 +7,7 @@ import lombok.Data;
  * @date 2020/1/16 下午2:53
  */
 @Data
-public class CourseScoreResp {
+public class CourseScore {
 
     /**
      * 未知

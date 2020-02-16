@@ -4,7 +4,7 @@ import response.*;
 import response.classroom.result.CampusInfo;
 import response.classroom.result.EmptyClassrommResult;
 import response.classroom.result.EmptyClassroom;
-import response.score.result.CourseScoreResp;
+import response.score.result.CourseScore;
 import response.score.result.CourseScoreResult;
 import response.login.info.LoginResp;
 
@@ -51,7 +51,7 @@ public interface ApiService {
      * @param dateId 学年Id
      * @return
      */
-    CourseScoreResult<List<CourseScoreResp>> getCourseScoreList(String token, String xh, String dateId);
+    CourseScoreResult<List<CourseScore>> getCourseScoreList(String token, String xh, String dateId);
 
     /**
      * 获取学年列表
