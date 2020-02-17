@@ -1,12 +1,6 @@
-package api;
+package api.impl;
 
-import response.*;
-import response.classroom.result.CampusInfo;
-import response.classroom.result.EmptyClassrommResult;
-import response.classroom.result.EmptyClassroom;
-import response.score.result.CourseScore;
-import response.score.result.CourseScoreResult;
-import response.login.info.LoginResp;
+import api.response.*;
 
 import java.util.Date;
 import java.util.List;
@@ -30,7 +24,7 @@ public interface ApiService {
      *
      * @param token token
      * @param date 格式为"YYYY-MM-DD"
-     * @return {@link DateInfoResp}
+     * @return
      */
     DateInfoResp getDateInfo(String token, Date date);
 
@@ -39,7 +33,7 @@ public interface ApiService {
      *
      * @param token token
      * @param date 格式为"YYYY-MM-DD"
-     * @return {@link DateInfoResp}
+     * @return
      */
     DateInfoResp getDateInfo(String token, String date);
 
@@ -58,7 +52,7 @@ public interface ApiService {
      *
      * @param token token
      * @param xh 学号
-     * @return {@link SchoolYearResp}
+     * @return
      */
     List<SchoolYearResp> getSchoolYearList(String token, String xh);
 
@@ -69,7 +63,7 @@ public interface ApiService {
      * @param xh 学号
      * @param xnxqid 学年Id
      * @param zc 周次
-     * @return {@link CourseInfoResp}
+     * @return
      */
     List<CourseInfoResp> getCourseInfoList(String token, String xh, String xnxqid, int zc);
 
@@ -78,7 +72,7 @@ public interface ApiService {
      *
      * @param token token
      * @param xh 学号
-     * @return {@link UserInfoResp}
+     * @return
      */
     UserInfoResp getUserInfo(String token, String xh);
 
@@ -90,7 +84,7 @@ public interface ApiService {
      * @param idleTime
      * @return
      */
-    EmptyClassrommResult<List<List<CampusInfo<List<EmptyClassroom>>>>> getEmptyClassroomList(String token,String method,String time,String idleTime);
+    EmptyClassrommResult<List<List<CampusInfoForEmptyClassroom<List<EmptyClassroom>>>>> getEmptyClassroomList(String token, String method, String time, String idleTime);
 
     /**
      * 获取校区信息
@@ -98,7 +92,7 @@ public interface ApiService {
      * @param method
      * @return
      */
-    List<response.CampusInfo> getCampusList(String token,String method);
+    List<CampusInfo> getCampusList(String token, String method);
 
     /**
      * 校区教学楼信息

@@ -1,4 +1,4 @@
-package response.score.result;
+package api.response;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package response.login.info;
+package api.response;
 
 import lombok.Data;
 

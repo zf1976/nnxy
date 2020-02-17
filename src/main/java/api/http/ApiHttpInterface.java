@@ -1,15 +1,11 @@
 package api.http;
 
-import response.*;
-import response.classroom.result.EmptyClassrommResult;
-import response.classroom.result.EmptyClassroom;
-import response.score.result.CourseScore;
-import response.login.info.LoginResp;
-import response.score.result.CourseScoreResult;
+import api.response.CampusInfoForEmptyClassroom;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Query;
+import api.response.*;
 
 import java.util.List;
 
@@ -20,14 +16,11 @@ import java.util.List;
 public interface ApiHttpInterface {
 
     @GET("/app.do")
+
     Call<LoginResp> login(@Query("method")String method,
                           @Query("xh")String xh,
                           @Query("pwd")String pwd);
 
-    @GET("/app.do")
-    Call<LoginResp> getLoginResp(@Query("method") String method,
-                                 @Query("xh") String xh,
-                                 @Query("pwd") String pwd);
     @GET("/app.do")
     Call<CourseScoreResult<List<CourseScore>>> getScore(@Header("token")String token,
                                                         @Query("method")String method,
@@ -57,10 +50,10 @@ public interface ApiHttpInterface {
                                          @Query("method")String method);
 
     @GET("/app.do")
-    Call<EmptyClassrommResult<List<response.classroom.result.CampusInfo<List<EmptyClassroom>>>>> getEmptyInfo(@Header("token")String token,
-                                                                                                              @Query("method")String method,
-                                                                                                              @Query("time")String time,
-                                                                                                              @Query("idleTime")String idleTime);
+    Call<EmptyClassrommResult<List<CampusInfoForEmptyClassroom<List<EmptyClassroom>>>>> getEmptyInfo(@Header("token")String token,
+                                                                                                 @Query("method")String method,
+                                                                                                 @Query("time")String time,
+                                                                                                 @Query("idleTime")String idleTime);
     @GET
     Call<List<TeachBuildInfo>> getTeachingBuildingInfo(@Header("token")String token,
                                                        @Query("method")String method,

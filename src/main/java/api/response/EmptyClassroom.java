@@ -1,4 +1,4 @@
-package response.classroom.result;
+package api.response;
 
 import lombok.Data;
 
