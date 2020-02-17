@@ -55,7 +55,7 @@ public interface ApiHttpInterface {
                                                                                                  @Query("method")String method,
                                                                                                  @Query("time")String time,
                                                                                                  @Query("idleTime")String idleTime);
-    @GET
+    @GET("/app.do")
     Call<List<TeachBuildInfo>> getTeachingBuildingInfo(@Header("token")String token,
                                                        @Query("method")String method,
                                                        @Query("xqid")Integer xqid);

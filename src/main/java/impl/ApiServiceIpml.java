@@ -48,7 +48,7 @@ public class ApiServiceIpml implements ApiService{
 
 
     public CourseScoreResult<List<CourseScore>> getCourseScoreList(String token, String xh, String dateId) {
-        return executeCall(INTERFACE.getScore(token,"xnxqid",xh,dateId));
+        return executeCall(INTERFACE.getScore(token,"getCjcx",xh,dateId));
     }
 
 
