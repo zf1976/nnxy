@@ -48,36 +48,44 @@ public class ApiServiceIpml implements ApiService{
 
 
     public CourseScoreResult<List<CourseScore>> getCourseScoreList(String token, String xh, String dateId) {
-        return null;
+        return executeCall(INTERFACE.getScore(token,"xnxqid",xh,dateId));
     }
 
 
     public List<SchoolYearResp> getSchoolYearList(String token, String xh) {
-        return null;
+        return executeCall(INTERFACE.getSchoolYear(token,"getXnxq",xh));
     }
 
 
     public List<CourseInfoResp> getCourseInfoList(String token, String xh, String xnxqid, int zc) {
-        return null;
+        return executeCall(INTERFACE.getCourseInfo(token,"getKbcxAzc",xh,xnxqid,zc));
     }
 
 
     public UserInfoResp getUserInfo(String token, String xh) {
-        return null;
+        return executeCall(INTERFACE.getUserInfo(token,"getUserInfo",xh));
+    }
+
+    /**
+     * 获取空教室信息列表
+     *
+     * @param token
+     * @param time
+     * @param idleTime
+     * @return
+     */
+    public EmptyClassrommResult<List<CampusInfoForEmptyClassroom<List<EmptyClassroom>>>> getEmptyClassroomList(String token, String time, String idleTime) {
+        return executeCall(INTERFACE.getEmptyInfo(token,"getKxJscx",time,idleTime));
     }
 
 
-    public EmptyClassrommResult<List<List<CampusInfoForEmptyClassroom<List<EmptyClassroom>>>>> getEmptyClassroomList(String token, String method, String time, String idleTime) {
-        return null;
-    }
-
-    public List<CampusInfo> getCampusList(String token, String method) {
-        return null;
+    public List<CampusInfo> getCampusList(String token) {
+        return executeCall(INTERFACE.getCampusInfo(token,"getXqcx"));
     }
 
 
-    public List<TeachBuildInfo> getTeachBiuldList(String token, String method, Integer xqid) {
-        return null;
+    public List<TeachBuildInfo> getTeachBiuldList(String token, int xqid) {
+        return executeCall(INTERFACE.getTeachingBuildingInfo(token,"getJxlcx",xqid));
     }
 
     <T> T executeCall(Call<T> call){

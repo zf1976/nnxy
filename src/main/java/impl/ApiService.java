@@ -79,28 +79,25 @@ public interface ApiService {
     /**
      * 获取空教室信息列表
      * @param token
-     * @param method
      * @param time
      * @param idleTime
      * @return
      */
-    EmptyClassrommResult<List<List<CampusInfoForEmptyClassroom<List<EmptyClassroom>>>>> getEmptyClassroomList(String token, String method, String time, String idleTime);
+    EmptyClassrommResult<List<CampusInfoForEmptyClassroom<List<EmptyClassroom>>>> getEmptyClassroomList(String token, String time, String idleTime);
 
     /**
      * 获取校区信息
      * @param token
-     * @param method
      * @return
      */
-    List<CampusInfo> getCampusList(String token, String method);
+    List<CampusInfo> getCampusList(String token);
 
     /**
      * 校区教学楼信息
      * @param token
-     * @param method
      * @param xqid
      * @return
      */
-    List<TeachBuildInfo> getTeachBiuldList(String token,String method,Integer xqid);
+    List<TeachBuildInfo> getTeachBiuldList(String token,int xqid);
 
 }

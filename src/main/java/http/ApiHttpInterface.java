@@ -24,7 +24,8 @@ public interface ApiHttpInterface {
     @GET("/app.do")
     Call<CourseScoreResult<List<CourseScore>>> getScore(@Header("token")String token,
                                                         @Query("method")String method,
-                                                        @Query("xh")String xh);
+                                                        @Query("xh")String xh,
+                                                        @Query("xnxqid")String nxnxqid);
     @GET("/app.do")
     Call<List<SchoolYearResp>> getSchoolYear(@Header("token")String token,
                                                              @Query("method")String method,

@@ -10,4 +10,5 @@ import lombok.Data;
 public class EmptyClassrommResult<T> {
     private String xnxqid;
     private T  data;
+    private boolean success;
 }
