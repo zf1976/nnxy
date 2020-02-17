@@ -1,6 +1,6 @@
-package api.impl;
+package impl;
 
-import api.response.*;
+import response.*;
 
 import java.util.Date;
 import java.util.List;

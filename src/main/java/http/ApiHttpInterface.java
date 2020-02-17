@@ -1,11 +1,11 @@
-package api.http;
+package http;
 
-import api.response.CampusInfoForEmptyClassroom;
+import response.CampusInfoForEmptyClassroom;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Query;
-import api.response.*;
+import response.*;
 
 import java.util.List;
 

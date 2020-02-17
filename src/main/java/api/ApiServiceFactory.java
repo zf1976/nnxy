@@ -1,6 +1,6 @@
 package api;
 
-import api.impl.ApiServiceIpml;
+import impl.ApiServiceIpml;
 
 /**
  * Create by Ant on 2020/2/17 12:55 下午

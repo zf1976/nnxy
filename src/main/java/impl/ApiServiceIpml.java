@@ -1,8 +1,8 @@
-package api.impl;
+package impl;
 
 
-import api.http.ApiHttpInterface;
-import api.response.*;
+import http.ApiHttpInterface;
+import response.*;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -37,13 +37,13 @@ public class ApiServiceIpml implements ApiService{
 
 
     public DateInfoResp getDateInfo(String token, Date date) {
-        return executeCall(INTERFACE.getDateInfo(token,"currenTime",new SimpleDateFormat("YYYY-MM-DD").format(date)));
+        return executeCall(INTERFACE.getDateInfo(token,"getCurrentTime",new SimpleDateFormat("YYYY-MM-DD").format(date)));
     }
 
 
 
     public DateInfoResp getDateInfo(String token, String date) {
-        return executeCall(INTERFACE.getDateInfo(token,"currenTime",date));
+        return executeCall(INTERFACE.getDateInfo(token,"getCurrentTime",date));
     }
 
 
