@@ -12,10 +12,8 @@ public class Test {
         LoginResp loginResp= ApiServiceFactory.getService().login("20181004095","fengge123");
         String token=loginResp.getToken();
         System.out.println(loginResp);
-        DateInfoResp f=ApiServiceFactory.getService().getDateInfo(token,"2019-10-29");
-        System.out.println(f);
-        EmptyClassrommResult a=ApiServiceFactory.getService().getEmptyClassroomList(token,"2019-10-29","allday");
-        System.out.println(a);
+        System.out.println(ApiServiceFactory.getService().getDateInfo(token, "2019-10-29"));
+        System.out.println(ApiServiceFactory.getService().getEmptyClassroomList(token, "2019-10-29", "allday"));
         System.out.println(ApiServiceFactory.getService().getCampusList(token));
         System.out.println(ApiServiceFactory.getService().getCourseInfoList(token, "20181004095", "2019-2020-1", 5));
         System.out.println(ApiServiceFactory.getService().getCourseScoreList(token, "20181004095", "2019-2020-1"));
