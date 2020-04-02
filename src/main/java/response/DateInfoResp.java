@@ -4,6 +4,7 @@ import lombok.Data;
 
 /**
  * 周信息
+ * @author ant
  * @date 2020/1/16 下午2:39
  */
 @Data
@@ -17,12 +18,12 @@ public class DateInfoResp {
     /**
      * 本周结束时间
      */
-    private String e_time;
+    private String eTime;
 
     /**
      * 本周开始时间
      */
-    private String s_time;
+    private String sTime;
 
     /**
      * 学年学期名称

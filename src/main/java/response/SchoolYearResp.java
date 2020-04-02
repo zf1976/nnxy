@@ -4,6 +4,7 @@ import lombok.Data;
 
 /**
  * 学期年份
+ * @author ant
  * @date 2020/1/16 下午3:15
  */
 @Data

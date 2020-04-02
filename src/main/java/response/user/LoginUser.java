@@ -1,9 +1,10 @@
-package response;
+package response.user;
 
 import lombok.Data;
 
 /**
  * 用户信息
+ * @author ant
  * @date 2020/1/16 下午2:24
  */
 @Data

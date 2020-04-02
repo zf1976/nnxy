@@ -1,12 +1,11 @@
 
-package response;
+package response.course;
 
 import lombok.Data;
 
 /**
  * 课程信息
- *
- * @author
+ * @author ant
  */
 @Data
 public class CourseInfoResp {

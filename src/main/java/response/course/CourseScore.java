@@ -1,9 +1,10 @@
-package response;
+package response.course;
 
 import lombok.Data;
 
 /**
  * 课程成绩
+ * @author ant
  * @date 2020/1/16 下午2:53
  */
 @Data

@@ -1,10 +1,11 @@
 
-package response;
+package response.user;
 
 import lombok.Data;
 
 /**
  * 学生信息
+ * @author ant
  */
 @Data
 public class UserInfoResp {
