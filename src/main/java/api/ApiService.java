@@ -37,25 +37,8 @@ public interface ApiService {
      * @param date 格式为"YYYY-MM-DD"
      * @return DateInfoResp
      */
-    DateInfoResp getDateInfo(String token, Date date);
+    DateInfoResp getDateInfo(String token, Param.DATE date);
 
-    /**
-     * 获取时间信息
-     *
-     * @param token token
-     * @param date 格式为"YYYY-MM-DD"
-     * @return DateInfoResp
-     */
-    DateInfoResp getDateInfo(String token, String date);
-
-    /**
-     * 查询成绩
-     * @param token token
-     * @param xh 学号
-     * @param dateId 格式为"YYYY-MM-DD"
-     * @return CourseScoreResult<CourseScore>
-     */
-    CourseScoreResult<CourseScore> getCourseScoreList(String token, String xh, String dateId);
 
     /**
      * 查询成绩
@@ -65,7 +48,7 @@ public interface ApiService {
      * @param dateId 格式为"YYYY-MM-DD"
      * @return CourseScoreResult<CourseScore>
      */
-    CourseScoreResult<CourseScore> getCourseScoreList(String token, String xh, Param.COURSE dateId);
+    CourseScoreResult<CourseScore> getCourseScoreResult(String token, String xh, Param.DATE dateId);
 
 
     /**
@@ -75,7 +58,7 @@ public interface ApiService {
      * @param xh 学号
      * @return List<SchoolYearResp>
      */
-    List<SchoolYearResp> getSchoolYearList(String token, String xh);
+    List<SchoolYearResp> getSchoolYearResult(String token, String xh);
 
     /**
      * 获取课程信息列表
@@ -86,7 +69,7 @@ public interface ApiService {
      * @param zc 周次
      * @return List<CourseInfoResp>
      */
-    List<CourseInfoResp> getCourseInfoList(String token, String xh, String xnxqid, int zc);
+    List<CourseInfoResp> getCourseResult(String token, String xh, String xnxqid, int zc);
 
     /**
      * 获取用户信息
@@ -105,14 +88,14 @@ public interface ApiService {
      *                 当取值为0104的时候与am等效)5种取值，默认值allday
      * @return EmptyClassroomsResult<EmptyClassroomsInfo<EmptyClassroom>>
      */
-    EmptyClassroomsResult<EmptyClassroomsInfo<EmptyClassroom>> getEmptyClassroomList(String token, String time, String idleTime);
+    EmptyClassroomsResult<EmptyClassroomsInfo<EmptyClassroom>> getEmptyClassroomResult(String token, String time, String idleTime);
 
     /**
      * 获取校区信息
      * @param token token
      * @return List<BuildingInfo>
      */
-    List<CampusInfo> getCampusList(String token);
+    List<CampusInfo> getCampusResult(String token);
 
     /**
      * 校区教学楼信息
@@ -120,6 +103,6 @@ public interface ApiService {
      * @param xqid 校区id
      * @return List<BuildingInfo>
      */
-    List<BuildingInfo> getBuildingList(String token, int xqid);
+    List<BuildingInfo> getBuildingResult(String token, int xqid);
 
 }

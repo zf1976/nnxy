@@ -18,10 +18,8 @@ import response.user.UserInfoResp;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
+import util.Tools;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -41,48 +39,62 @@ public class ApiServiceImpl implements ApiService {
             INTERFACE=retrofit.create(ApiHttpInterface.class);
     }
 
+    private static String id="";
+
+    @Override
     public LoginResp login(String xh, String pwd) {
-        return executeCall(INTERFACE.login("authUser",xh,pwd));
+        id=xh;
+        return executeCall(INTERFACE.login(Param.REQUEST.AUTH_USER.value,xh,pwd));
     }
 
-    public DateInfoResp getDateInfo(String token, Date date) {
-        return executeCall(INTERFACE.getDateInfo(token,"getBuildingList",new SimpleDateFormat("yyyy-MM-DD").format(date)));
+    @Override
+    public DateInfoResp getDateInfo(String token, Param.DATE date) {
+        if (date==Param.DATE.CURRENT){
+            String dateId = Tools.getCurrentSchoolYear(token,id);
+            return executeCall(INTERFACE.getDateInfo(token,Param.REQUEST.CURRENT_TIME.value,dateId));
+        }
+        return executeCall(INTERFACE.getDateInfo(token,Param.REQUEST.CURRENT_TIME.value,""));
     }
 
-    public DateInfoResp getDateInfo(String token, String date) {
-        return executeCall(INTERFACE.getDateInfo(token,"getCurrentTime",date));
+
+    @Override
+    public CourseScoreResult<CourseScore> getCourseScoreResult(String token, String xh, Param.DATE dateId) {
+
+        if (dateId == Param.DATE.CURRENT) {
+            String date = Tools.getCurrentSchoolYear(token, xh);
+            return executeCall(INTERFACE.getScore(token, Param.REQUEST.COURSE_SCORE.value, xh, date));
+        }
+        return executeCall(INTERFACE.getScore(token, Param.REQUEST.COURSE_SCORE.value, xh,""));
     }
 
-    public CourseScoreResult<CourseScore> getCourseScoreList(String token, String xh, String dateId) {
-        return executeCall(INTERFACE.getScore(token,"getCjcx",xh,dateId));
+    @Override
+    public List<SchoolYearResp> getSchoolYearResult(String token, String xh) {
+        return executeCall(INTERFACE.getSchoolYear(token,Param.REQUEST.SCHOOL_YEAR.value, xh));
     }
 
-    public CourseScoreResult<CourseScore> getCourseScoreList(String token, String xh, Param.COURSE dateId) {
-        return executeCall(INTERFACE.getScore(token,"getCjcx",xh,dateId.value));
+    @Override
+    public List<CourseInfoResp> getCourseResult(String token, String xh, String xnxqid, int zc) {
+        return executeCall(INTERFACE.getCourseInfo(token, Param.REQUEST.COURSE_INFO.value, xh, xnxqid, zc));
     }
 
-    public List<SchoolYearResp> getSchoolYearList(String token, String xh) {
-        return executeCall(INTERFACE.getSchoolYear(token,"getXnxq",xh));
-    }
-
-    public List<CourseInfoResp> getCourseInfoList(String token, String xh, String xnxqid, int zc) {
-        return executeCall(INTERFACE.getCourseInfo(token,"getKbcxAzc",xh,xnxqid,zc));
-    }
-
+    @Override
     public UserInfoResp getUserInfo(String token, String xh) {
-        return executeCall(INTERFACE.getUserInfo(token,"getUserInfo",xh));
+        return executeCall(INTERFACE.getUserInfo(token,Param.REQUEST.USER_INFO.value,xh));
     }
 
-    public EmptyClassroomsResult<EmptyClassroomsInfo<EmptyClassroom>> getEmptyClassroomList(String token, String time, String idleTime) {
-        return executeCall(INTERFACE.getEmptyInfo(token,"getKxJscx",time,idleTime));
+    @Override
+    public EmptyClassroomsResult<EmptyClassroomsInfo<EmptyClassroom>> getEmptyClassroomResult(String token, String time, String idleTime) {
+        return executeCall(INTERFACE.getEmptyInfo(token,Param.REQUEST.EMPTY_CLASSROOM.value,time,idleTime));
     }
 
-    public List<CampusInfo> getCampusList(String token) {
-        return executeCall(INTERFACE.getCampusInfo(token,"getXqcx"));
+    @Override
+    public List<CampusInfo> getCampusResult(String token) {
+        return executeCall(INTERFACE.getCampusInfo(token,Param.REQUEST.CAMPUS.value));
     }
 
-    public List<BuildingInfo> getBuildingList(String token, int xqid) {
-        return executeCall(INTERFACE.getBuildingList(token,"getJxlcx",xqid));
+    @Override
+    public List<BuildingInfo> getBuildingResult(String token, int xqid) {
+        return executeCall(INTERFACE.getBuildingList(token,Param.REQUEST.BUILDING_INFO.value,xqid));
     }
 
     <T> T executeCall(Call<T> call){

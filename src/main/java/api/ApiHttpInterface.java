@@ -50,7 +50,7 @@ public interface ApiHttpInterface {
     Call<CourseScoreResult<CourseScore>> getScore(@Header("token")String token,
                                                   @Query("method")String method,
                                                   @Query("xh")String xh,
-                                                  @Query("xnxqid")String nxnxqid);
+                                                  @Query("xnxqid") String nxnxqid);
 
     /**
      * 学年列表
@@ -85,7 +85,7 @@ public interface ApiHttpInterface {
      * @param method 请求头
      * @param xh 学号
      * @param xnxqid 格式为"YYYY-YYYY-X"，非必填，不包含时返回当前日期所在学期课表
-     * @param zc 必填（不知道什么鬼）->周id
+     * @param zc 必填（不知道什么鬼）周id
      * @return Call<List<CourseInfoResp>>
      */
     @GET("/app.do")
