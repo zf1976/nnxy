@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
  */
 public final class Tools {
 
-    public static final Logger LOG = LoggerFactory.getLogger(Tools.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Tools.class);
 
     private static Map<String,List<String>> map;
 
@@ -62,10 +62,10 @@ public final class Tools {
                 }
             }
         }
-        LOG.info("查询年级专业总人数：{}",number);
+        LOG.info("年级专业总人数：{}",number);
     }
 
-    private static List<String> getClassHx(Param.CLASS clazz) throws IOException {
+    public static List<String> getClassHx(Param.CLASS clazz) throws IOException {
         if (map == null){
             initAllXhs();
         }
