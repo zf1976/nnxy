@@ -13,14 +13,10 @@ public class Param {
      */
     public enum DATE {
 
-        /**
-         * 所有学期，对于查周默认为空
-         */
+        // 所有学期，对于查周默认为空
         ALL,
 
-        /**
-         * 当前学期
-         */
+        //当前学期
         CURRENT;
 
         private String value;
@@ -70,6 +66,40 @@ public class Param {
          public  String value;
 
          REQUEST(String value) {
+             this.value=value;
+         }
+     }
+
+     public enum GRADE{
+
+         //参数1
+         JK,
+         //参数2
+         SM,
+         //参数3
+         RJ
+
+     }
+
+     public enum CLASS{
+
+         //计科1班
+         JK_ONE("计科1.txt"),
+         //计科2班
+         JK_TWO("计科2.txt"),
+         //数媒1班
+         SM_ONE("数媒1.txt"),
+         //数媒2班
+         SM_TWO("数媒2.txt"),
+         //软件1班
+         RJ_ONE("软件1.txt"),
+         //软件2班
+         RJ_TWO("软件2.txt"),
+         //软件3班
+         RJ_THREE("软件3.txt");
+
+         public String value;
+         CLASS(String value) {
              this.value=value;
          }
      }

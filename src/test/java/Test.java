@@ -25,7 +25,7 @@ public class Test {
 //        LOG.info("{}",util.ApiServiceFactory.getService().getCampusResult(token));
 //        LOG.info("{}",util.ApiServiceFactory.getService().getCourseResult(token, "20181004095", "2019-2020-1", 5));
   //     LOG.info("{}",util.ApiServiceFactory.getService().getCourseScoreResult(token, "20181004095", ""));
- //       LOG.info("{}",ApiServiceFactory.getService().getSchoolYearResult(token, "20181004095"));
+ //       LOG.info("{}",util.ApiServiceFactory.getService().getSchoolYearResult(token, "20181004095"));
 //        LOG.info("{}",util.ApiServiceFactory.getService().getBuildingResult(token, 3));
 //        LOG.info("{}",util.ApiServiceFactory.getService().getUserInfo(token, "20181004095"));
 //
