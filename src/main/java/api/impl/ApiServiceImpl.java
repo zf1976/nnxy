@@ -31,6 +31,8 @@ public class ApiServiceImpl implements ApiService {
 
     private static ApiHttpInterface INTERFACE;
 
+    private static String id = null;
+
     static {
             Retrofit retrofit= new Retrofit.Builder()
                     .baseUrl("http://jw.nnxy.cn")
@@ -39,23 +41,20 @@ public class ApiServiceImpl implements ApiService {
             INTERFACE=retrofit.create(ApiHttpInterface.class);
     }
 
-    private static String id="";
-
     @Override
     public LoginResp login(String xh, String pwd) {
         id=xh;
-        return executeCall(INTERFACE.login(Param.REQUEST.AUTH_USER.value,xh,pwd));
+        return executeCall(INTERFACE.login(Param.REQUEST.AUTH_USER.value, xh, pwd));
     }
 
     @Override
     public DateInfoResp getDateInfo(String token, Param.DATE date) {
         if (date==Param.DATE.CURRENT){
-            String dateId = Tools.getCurrentSchoolYear(token,id);
-            return executeCall(INTERFACE.getDateInfo(token,Param.REQUEST.CURRENT_TIME.value,dateId));
+            String dateId = Tools.getCurrentSchoolYear(token, id);
+            return executeCall(INTERFACE.getDateInfo(token, Param.REQUEST.CURRENT_TIME.value, dateId));
         }
-        return executeCall(INTERFACE.getDateInfo(token,Param.REQUEST.CURRENT_TIME.value,""));
+        return executeCall(INTERFACE.getDateInfo(token, Param.REQUEST.CURRENT_TIME.value,""));
     }
-
 
     @Override
     public CourseScoreResult<CourseScore> getCourseScoreResult(String token, String xh, Param.DATE dateId) {
