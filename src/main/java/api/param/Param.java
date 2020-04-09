@@ -21,8 +21,20 @@ public class Param {
         /**
          * 当前学期
          */
-        CURRENT
-     }
+        CURRENT;
+
+        private String value;
+
+        DATE() {
+            this.value="";
+        }
+
+        public String getValue() {
+            return value;
+        }
+    }
+
+
 
      public enum REQUEST{
          //登陆请求头

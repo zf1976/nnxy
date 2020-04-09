@@ -52,8 +52,10 @@ public class ApiServiceImpl implements ApiService {
         if (date==Param.DATE.CURRENT){
             String dateId = Tools.getCurrentSchoolYear(token, id);
             return executeCall(INTERFACE.getDateInfo(token, Param.REQUEST.CURRENT_TIME.value, dateId));
+        } else{
+            return executeCall(INTERFACE.getDateInfo(token, Param.REQUEST.CURRENT_TIME.value,Param.DATE.ALL.getValue()));
         }
-        return executeCall(INTERFACE.getDateInfo(token, Param.REQUEST.CURRENT_TIME.value,""));
+
     }
 
     @Override
@@ -62,8 +64,10 @@ public class ApiServiceImpl implements ApiService {
         if (dateId == Param.DATE.CURRENT) {
             String date = Tools.getCurrentSchoolYear(token, xh);
             return executeCall(INTERFACE.getScore(token, Param.REQUEST.COURSE_SCORE.value, xh, date));
+        } else {
+            return executeCall(INTERFACE.getScore(token, Param.REQUEST.COURSE_SCORE.value, xh,Param.DATE.ALL.getValue()));
         }
-        return executeCall(INTERFACE.getScore(token, Param.REQUEST.COURSE_SCORE.value, xh,""));
+
     }
 
     @Override

@@ -12,8 +12,8 @@ public class ApiServiceFactory{
     private ApiServiceFactory(){}
     public static ApiServiceImpl getService(){
         synchronized (ApiServiceFactory.class){
-            if (ADI_SERVICE_IMPL ==null){
-                ADI_SERVICE_IMPL =new ApiServiceImpl();
+            if (ADI_SERVICE_IMPL == null){
+                ADI_SERVICE_IMPL = new ApiServiceImpl();
             }
             return ADI_SERVICE_IMPL;
         }
