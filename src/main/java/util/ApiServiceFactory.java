@@ -7,7 +7,7 @@ import api.impl.ApiServiceImpl;
  * mac
  * @author ant
  */
-public class ApiServiceFactory{
+public final class ApiServiceFactory{
     private static ApiServiceImpl ADI_SERVICE_IMPL;
     private ApiServiceFactory(){}
     public static ApiServiceImpl getService(){

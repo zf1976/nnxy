@@ -25,18 +25,15 @@ public final class Tools {
     public static String getCurrentSchoolYear(String token,String xh){
          List<SchoolYearResp> schoolYears = ApiServiceFactory.getService()
                                                              .getSchoolYearResult(token, xh);
-
          schoolYears = schoolYears.stream()
                                   .filter(year->{
                                      return "1".equals(year.getIsdqxq());
                                   })
                                   .collect(Collectors.toList());
-
         return schoolYears.get(0).getXnxq01id();
     }
 
     private static void initAllXhs() throws IOException {
-
         final File dir = new File(new File("").getCanonicalPath()+"/xh");
         if(map == null){
             map=new HashMap<>();
@@ -44,14 +41,11 @@ public final class Tools {
             return;
         }
         List<String> xhList = null;
-
         if (dir.isDirectory()){
-
             final File[] files = dir.listFiles();
             assert files != null;
             number=0;
             for (File file : files){
-
                 try (final FileInputStream fis = new FileInputStream(file);
                      final BufferedInputStream bis = new BufferedInputStream(fis)){
 
@@ -98,7 +92,10 @@ public final class Tools {
                 final List<String> smGrade = map.get(Param.CLASS.SM_ONE.value);
                 smGrade.addAll(map.get(Param.CLASS.SM_TWO.value));
                 return smGrade;
+
+            default:
+                return null;
         }
-       return null;
+
     }
 }

@@ -55,19 +55,16 @@ public class ApiServiceImpl implements ApiService {
         } else{
             return executeCall(INTERFACE.getDateInfo(token, Param.REQUEST.CURRENT_TIME.value,Param.DATE.ALL.getValue()));
         }
-
     }
 
     @Override
     public CourseScoreResult<CourseScore> getCourseScoreResult(String token, String xh, Param.DATE dateId) {
-
         if (dateId == Param.DATE.CURRENT) {
             String date = Tools.getCurrentSchoolYear(token, xh);
             return executeCall(INTERFACE.getScore(token, Param.REQUEST.COURSE_SCORE.value, xh, date));
         } else {
             return executeCall(INTERFACE.getScore(token, Param.REQUEST.COURSE_SCORE.value, xh,Param.DATE.ALL.getValue()));
         }
-
     }
 
     @Override
@@ -100,7 +97,7 @@ public class ApiServiceImpl implements ApiService {
         return executeCall(INTERFACE.getBuildingList(token,Param.REQUEST.BUILDING_INFO.value,xqid));
     }
 
-    <T> T executeCall(Call<T> call){
+    private  <T> T executeCall(Call<T> call){
             try {
               return  call.execute().body();
             } catch (IOException e) {
