@@ -1,6 +1,5 @@
 package api.intercepter;
 
-import okhttp3.Address;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -9,16 +8,14 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.net.InetAddress;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
 /**
  * @author ant
  * Create by Ant on 2020/4/10 下午5:31
  */
-public class MessageIntercepted implements Interceptor {
-    private static Logger LOG= LoggerFactory.getLogger(MessageIntercepted.class);
+public class LogIntercepted implements Interceptor {
+    private static Logger LOG= LoggerFactory.getLogger(LogIntercepted.class);
     @Override
     public Response intercept(Chain chain) throws IOException {
         final Request request = chain.request();
