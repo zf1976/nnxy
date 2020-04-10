@@ -3,7 +3,7 @@ package api.impl;
 
 import api.ApiService;
 import api.ApiHttpInterface;
-import api.intercepter.ApiIntercepter;
+import api.intercepter.MessageIntercepted;
 import api.param.Param;
 import response.*;
 import okhttp3.OkHttpClient;
@@ -38,7 +38,7 @@ public class ApiServiceImpl implements ApiService {
             Retrofit retrofit= new Retrofit.Builder()
                     .baseUrl("http://jw.nnxy.cn")
                     .addConverterFactory(GsonConverterFactory.create())
-                    .client(new OkHttpClient.Builder().addInterceptor(new ApiIntercepter()).build())
+                    .client(new OkHttpClient.Builder().addInterceptor(new MessageIntercepted()).build())
                     .build();
             INTERFACE=retrofit.create(ApiHttpInterface.class);
     }
