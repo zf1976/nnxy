@@ -36,7 +36,7 @@ public final class Tools {
     private static void initAllXhs() throws IOException {
         final File dir = new File(new File("").getCanonicalPath()+"/xh");
         if(map == null){
-            map=new HashMap<>();
+            map=new HashMap<>(10);
         }else {
             return;
         }
