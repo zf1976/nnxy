@@ -8,7 +8,7 @@ import api.impl.ApiServiceImpl;
  * @author ant
  */
 public final class ApiServiceFactory{
-    private static ApiServiceImpl ADI_SERVICE_IMPL;
+    private volatile static ApiServiceImpl ADI_SERVICE_IMPL;
     private ApiServiceFactory(){}
     public static ApiServiceImpl getService(){
         synchronized (ApiServiceFactory.class){

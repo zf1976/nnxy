@@ -1,20 +1,16 @@
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import response.user.LoginResp;
 import util.ApiServiceFactory;
 import util.Tools;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * @author ant
  * Create by Ant on 2020/2/17 2:25 下午
  * mac
  */
+@Slf4j
 public class Test {
 
-    public static Logger LOG= LoggerFactory.getLogger(Test.class);
     public static void main(String[] args) {
         LoginResp loginResp= ApiServiceFactory.getService()
                                               .login("20181004095","fengge123");
@@ -28,7 +24,7 @@ public class Test {
 //        LOG.info("{}",util.ApiServiceFactory.getService().getBuildingResult(token, 3));
 //        LOG.info("{}",util.ApiServiceFactory.getService().getUserInfo(token, "20181004095"));
 //
-        System.out.println(Tools.getCurrentSchoolYear(token, "20181004095"));
+        log.info("{}",Tools.getCurrentSchoolYear(token, "20181004095"));
     }
 
 }

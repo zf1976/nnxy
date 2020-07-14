@@ -30,7 +30,7 @@ import java.util.List;
  */
 public class ApiServiceImpl implements ApiService {
 
-    private static ApiHttpInterface INTERFACE;
+    private static final ApiHttpInterface INTERFACE;
 
     private static String id = null;
 
